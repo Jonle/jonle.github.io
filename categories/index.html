@@ -38,7 +38,7 @@
       
         <li class="nav-item">
           
-            <a href="/about" class="item-link active">About</a>
+            <a href="/about" class="item-link">About</a>
           
         </li>
       
@@ -56,7 +56,7 @@
             
             
           </div>
-          <p>layout: about</p>
+          <p>type: categories<br>layout: categories</p>
 
         </section>
     </article>
@@ -86,8 +86,8 @@
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES * * */
   var disqus_shortname = "jonle";
-  var disqus_identifier = "https://www.jonlezl.cn/about/index.html";
-  var disqus_url = "https://www.jonlezl.cn/about/index.html";
+  var disqus_identifier = "https://www.jonlezl.cn/categories/index.html";
+  var disqus_url = "https://www.jonlezl.cn/categories/index.html";
 
   isAgent(getDisqus)
 
@@ -149,65 +149,6 @@
   </div>
 </footer>
 
-
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="/lib/in-view.min.js"></script>
-<script src="/lib/lodash.min.js"></script>
-<script>
-  var isDown = true
-  var oldY = 0
-  inView.offset(50)
-
-  document.body.addEventListener('touchstart', function(){});
-  
-  window.addEventListener('scroll', _.throttle(e => {
-    var currentY = window.scrollY
-    if((oldY - currentY) < 0) {
-      isDown = true
-    } else {
-      isDown = false
-    }
-    oldY = currentY
-  }, 250))
-
-  $("article img").each(function() {
-      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
-      $(this).wrapAll(strA);
-  });
-
-  $('.toc-link').each(function() {
-      var href = $(this).attr("href");
-      
-      inView(href).on('exit', () => {
-        if (isDown) {
-          handleActive(href)
-        }
-      })
-
-      inView(href).on('enter', () => {
-        if (!isDown) {
-          handleActive(href)
-        }
-      })
-
-      this.onclick = function(e) {
-        var pos = $(href).offset().top - 10;
-        $("html,body").animate({scrollTop: pos}, 300);
-        setTimeout(() => {
-          handleActive(href)
-        }, 350)
-        return false
-      }
-  })
-
-  function handleActive(href) {
-    document.querySelectorAll('.toc-link').forEach(elm => {
-      elm.classList.remove('active')
-    })
-    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
-  }
-</script>
-<script src="/lib/jquery.fancybox.min.js"></script>
 
 
 </body>
