@@ -38,6 +38,12 @@
       
         <li class="nav-item">
           
+            <a href="/tags" class="item-link active">Tags</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
             <a href="/about" class="item-link">About</a>
           
         </li>
@@ -46,97 +52,33 @@
   </div>
 </header>
 
-  <main id='post'>
-  <div class="content">
-    <article>
-        <section class="content markdown-body">
-          <h1>Untitled</h1>
-          <div class='post-meta'>
-            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/06/30</time>
-            
-            
-          </div>
-          <p>type: tags<br>layout: tags</p>
-
-        </section>
-    </article>
-    
-        <!-- disqus 评论框 start -->
-        <div class="comment">
-            <div id="disqus_thread" class="disqus-thread">
-              <i>Loading comments box needs to over the wall</i>
-            </div>
-        </div>
-        <!-- disqus 评论框 end -->
-    
-    
-        <!-- livere 评论框 start -->
-        <div class="comment">
-            <div id="lv-container" data-id="city" data-uid="your_livere_uid"></div>
-        </div>
-        <!-- livere 评论框 end -->
-        
+  <main id='tags'>
+  <div class="tags-container">
+  <div id='tag_cloud' class="tags">
+      
+          <a href="#Games" title="Games" rel="1">Games</a>
+      
   </div>
-  <aside>
+  
+  <div class="tag-list">
+      <span class="fa fa-tag listing-seperator" id="Games">
+          <span class="tag-text">Games</span>
+      </span>
+      
+        <div class="post-preview">
+            <a href="/2018/06/30/myGames/">
+                <h2 class="post-title">
+                    Some games -XXHD
+                </h2>
+                
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+      
+  </div>
     
-  </aside>
+  </div>
 </main>
-
-<!-- disqus 公共JS代码 -->
-<script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES * * */
-  var disqus_shortname = "jonle";
-  var disqus_identifier = "https://www.jonlezl.cn/tags/index.html";
-  var disqus_url = "https://www.jonlezl.cn/tags/index.html";
-
-  isAgent(getDisqus)
-
-  // determine user agent in China
-  function isAgent(cb) {
-    var url = '//graph.facebook.com/feed?callback=h';
-    var xhr = new XMLHttpRequest();
-    var called = false;
-    xhr.open('GET', url);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-      called = true;
-      cb(true);
-      }
-    };
-    xhr.send();
-    // timeout 1s, this facebook API is very fast.
-    setTimeout(function() {
-      if (!called) {
-      xhr.abort();
-      cb(false)
-      }
-    }, 1000);
-  }
-
-  function getDisqus(isAgent) {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; 
-    dsq.async = true
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
-  }
-</script>
-<!-- disqus 公共JS代码 end -->
-
-
-<script type="text/javascript">
-  (function(d, s) {
-      var j, e = d.getElementsByTagName(s)[0];
-
-      if (typeof LivereTower === 'function') { return; }
-
-      j = d.createElement(s);
-      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-      j.async = true;
-
-      e.parentNode.insertBefore(j, e);
-  })(document, 'script');
-</script>
-
 
   <footer>
   <div class="copyright">
