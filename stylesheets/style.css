@@ -6,22 +6,14 @@
     url("../fonts/FontAwesome-webfont.ttf"),
     url("../fonts/FontAwesome-webfont.woff");
     font-weight: bold;
+    font-size: 100%;
 }
 
-html, body {
+html, body, main {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-}
-
-main {
-    width: 100%;
-    height: 100%;
-}
-
-#header-container {
-
 }
 
 header {
@@ -51,20 +43,23 @@ footer {
 }
 
 footer .wraper {
-    float: left;
+    /*float: left;*/
     position: relative;
     left: -50%;
     clear: both;
 }
 
-footer .wraper .copyright {
-    font-family: mainFont;
-    line-height: 1.5em;
-    width: 100%;
+footer .wraper .copyright, .originalWeb {
     color: #BABABA;
-    align-content: center;
+    line-height: 1.5em;
+    left: 50%;
+    text-align: center;
 }
 
-footer .wraper .copyright a:hover {
+footer .wraper .originalWeb {
+    font-size: 0.8rem;
+}
+
+footer .wraper .copyright a:hover ,.originalWeb a:hover {
     color: #007fff;
 }
