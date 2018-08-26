@@ -8,8 +8,11 @@
     font-weight: bold;
     font-size: 100%;
 }
+body {
+    background-color: #f4f5f5;
+}
 
-html, body, main {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -18,21 +21,33 @@ html, body, main {
 
 header {
     position: absolute;
-    top: 20px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
-    color: black;
-    font-family: mainFont;
-    font-size: 1em;
+    height: 50px;
+    color: gray;
+    background-color: white;
 
     display: -moz-box;
     -moz-box-pack: center;
 
     display: -webkit-box;
     -webkit-box-pack: center;
+}
+header div p {
+    margin: 0.5em 0 0 0;
+    font-family: mainFont ,serif;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
 
-    display: box;
-    box-pack: center;
+main {
+    top: 70px;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 footer {
@@ -62,4 +77,48 @@ footer .wraper .originalWeb {
 
 footer .wraper .copyright a:hover ,.originalWeb a:hover {
     color: #007fff;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #909090;
+}
+
+#index .posts-list {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    box-sizing: border-box;
+    flex-basis: 100%;
+    align-self:center;
+
+    display: -moz-box;
+    -moz-box-pack: center;
+
+    display: -webkit-box;
+    -webkit-box-pack: center;
+}
+
+#index .posts-list section {
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(178, 186, 194, 0.15);
+
+}
+
+#index .posts-list section a {
+    color: #404040;
+}
+
+#index .posts-list section a:hover {
+    color: #007fff;
+}
+
+#index .posts-list section a h3 {
+    margin: 0 0 5px;
+    font-size: 1.5em;
+    font-weight: 700;
+    transition: 0.3s color;
 }
