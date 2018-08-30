@@ -75,8 +75,9 @@
         },
         //第一个界面用户提交用户名
         usernameSubmit:function(){
-            let username = d.getElementById("username").value;
-            if(username != ""){
+            let username = localStorage.getItem('__username');
+            localStorage.removeItem('__username');
+            if(username){
                 d.getElementById("username").value = '';
                 d.getElementById("loginbox").style.display = 'none';
                 d.getElementById("chatbox").style.display = 'block';
@@ -95,6 +96,21 @@
             d.getElementById("showusername").innerHTML = this.username;
             this.msgObj.style.minHeight = (this.screenheight - db.clientHeight + this.msgObj.clientHeight) + "px";
             this.scrollToBottom();
+
+            var onopen = function (event) {
+                var socket = event.currentTarget;
+                socket.send();
+                socket.onmessage = function (event) {
+
+                };
+            };
+
+            var ws = new WebSocketHandler();
+            var socket = ws.createConnection();
+            socket.onopen = onopen;
+            socket.onerror = function () {
+                ws.reconnection(onopen);
+            };
 
             //连接websocket后端服务器
             this.socket = io.connect('ws://realtime.plhwin.com:3000');

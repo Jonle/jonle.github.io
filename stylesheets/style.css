@@ -54,13 +54,13 @@ footer {
     float: left;
     position: absolute;
     bottom: 5px;
-    left: 50%;
+    width: 100%;
 }
 
 footer .wraper {
     /*float: left;*/
     position: relative;
-    left: -50%;
+    left: 0;
     clear: both;
 }
 
