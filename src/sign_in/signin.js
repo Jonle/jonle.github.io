@@ -4,9 +4,10 @@
     if(inputs) {
         inputs[0].value = localStorage.getItem('__username');
         localStorage.removeItem('__username');
+        inputs = null;
     }
     signupBtn.addEventListener('click',function () {
-
+        let inputs = document.getElementsByTagName('input');
         let values = [];
         if(inputs) {
             for (let i = inputs.length-1,element;i>=0;i--) {
@@ -24,16 +25,19 @@
         if(values.length > 0) {
             let onopen = function (event) {
                 let socket = event.currentTarget;
-                socket.send(JSON.stringify({event: "signin", user: values[0], password: values[1]}));
+                socket.send(JSON.stringify({eventType: "signin", data:values}));
                 socket.onmessage = function (event) {
-                    let state = Number(event.data);
-                    if (state === 200) {
+                    let obj = JSON.parse(event.data);
+                    let code = obj.code;
+                    let message = obj.message;
+                    if (code === 200) {
                         window.location.href = '../chat/index.html';
                         localStorage.setItem('__username', values[0]);
-                    } else if (state === 404) {
-                        alert('用户名已存在！');
-                        socket.close();
+                        localStorage.setItem('__userid', obj.id);
+                    } else if (code === 404) {
+                        alert(message);
                     }
+                    socket.close();
                 };
             };
 

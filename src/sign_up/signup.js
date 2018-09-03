@@ -18,18 +18,20 @@
         if (values.length > 0) {
             let onopen = function (event) {
                 let socket = event.currentTarget;
-                socket.send(JSON.stringify({event: "signup", user: values[0], password: values[1]}));
+                socket.send(JSON.stringify({eventType: "signup", data:values}));
                 socket.onmessage = function (event) {
-                    let state = Number(event.data);
-                    if (state === 200) {
-                        if (confirm('注册成功！')) {
-                            window.location.href = '../sign_in/index.html';
-                            localStorage.setItem('__username', values[0]);
-                        }
-                    } else if (state === 409) {
-                        alert('用户名已存在！');
-                        socket.close();
+                    console.log(event);
+                    let obj = JSON.parse(event.data);
+                    let code = obj.code;
+                    let message = obj.message;
+                    if (code === 200 && confirm(message)) {
+                        window.location.href = '../sign_in/index.html';
+                        localStorage.setItem('__username', values[0]);
+                        localStorage.setItem('__userid', obj.id);
+                    } else if (code === 409 || code === 404) {
+                        alert(message);
                     }
+                    socket.close();
                 };
             };
 
