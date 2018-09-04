@@ -35,7 +35,14 @@ WebSocketHandler.prototype = {
     },
     normalizeUrl:function (port,ip) {
         if(!this._url) {
-            let arr = ['ws://'];
+            let arr = [];
+
+            if(window.location.protocol === 'https:') {
+                arr.push('wss://');
+            } else {
+                arr.push('ws://');
+            }
+
             if(port) {
                 this.CONST.PORT = port;
             }
