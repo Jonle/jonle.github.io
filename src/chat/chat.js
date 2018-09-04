@@ -110,7 +110,7 @@
             };
 
             let ws = new WebSocketHandler();
-            let socket = ws.createConnection('8081','localhost');
+            let socket = ws.createConnection('8081');
             socket.onopen = onopen;
             socket.onerror = function () {
                 ws.reconnection(onopen);
