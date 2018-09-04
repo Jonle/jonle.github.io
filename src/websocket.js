@@ -5,7 +5,7 @@ WebSocketHandler.prototype = {
     constructor:WebSocketHandler,
     CONST:{
         IP:'jonle.live',
-        PORT:'8081'
+        PORT:'80'
     },
     _url:null,
     _count:0,
