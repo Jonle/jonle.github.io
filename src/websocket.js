@@ -35,7 +35,7 @@ WebSocketHandler.prototype = {
     },
     normalizeUrl:function (port,ip) {
         if(!this._url) {
-            let arr = ['wss://'];
+            let arr = ['ws://'];
             if(port) {
                 this.CONST.PORT = port;
             }
